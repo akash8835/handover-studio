@@ -43,3 +43,10 @@ Source conflicts: landing page lists Free/Pro/Ultimate with 15/30-minute limits;
 - Video mode AI uses reviewed transcript/notes, not pixels. DOM capture remains the route for silent page-text search.
 - Added beta email/password customer signup/login with salted PBKDF2 hashes and separate storage namespaces; cross-account read tests pass. No email verification, password recovery, SSO or multi-member workspace roles yet. Not commercial-production ready.
 - Free beta caps: 25 new accounts/day, 20 recordings/workspace, 12 MB per video and 18 MB DOM payload.
+
+## Beta hardening
+- Account-delete endpoint removes the account's library and invalidates sessions/device identity through principal deletion.
+- Owner sign-in label is generic on the public login screen.
+- Public redacted DOM replay omits generated steps/comments because they may still quote now-redacted text.
+- AI calls are rate-limited per principal/IP/hour on the free beta; this is KV best-effort, not a transactional abuse control.
+- Still unresolved: secure transactional identity/store, email verification/reset, durable video storage/range streaming, media privacy review, true element-following masks, all reference internal workflows.
