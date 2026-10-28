@@ -61,3 +61,6 @@ Re-inspected authenticated reference Videos, Walkthroughs, Projects and Settings
 
 ## Production design-only release, 2026-10-28 22:11 IST
 User requested these designs on the main site with Google deferred until last. Production worker and deployment config are restored byte-for-byte from commit 58104a00450e7da9835f6b74dddf4c947c46d89c; account-login rendering/behavior is retained from that release. Managed authentication stays on isolated staging, not enabled here. New library/Settings/resource designs and private guide/project editor layout retain existing actions. No production data migration, deletion, or real invitations.
+
+## Reliability fixes, 2026-10-28 22:16 IST
+Reproduced on live isolated synthetic tenants: video Details exposed deletion; comment refresh discarded pending title/description edits; video's Back action incorrectly opened Walkthroughs. Fixed UI/back state/comment refresh. Video DELETE now rejects with 403 and preserves recording/media in free plan. No owner-data writes or destructive cleanup during verification. Animation branch paused and excluded. Legacy production login retained.
