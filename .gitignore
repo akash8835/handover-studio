@@ -10,3 +10,5 @@ scripts/deploy.mjs
 scripts/verify-live.mjs
 
 scripts/test-live-ai.mjs
+
+scripts/test-video.mjs
