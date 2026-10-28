@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {generateSteps,questionMatches} from '../src/ai.mjs';
+test('AI step timestamps are restricted to captured evidence',async()=>{let ai={run:async()=>({response:JSON.stringify({title:'Example',steps:[{seconds:4,title:'Invite',narration:'Click Invite'},{seconds:99,title:'Invented',narration:'No evidence'}]})})};let a=await generateSteps(ai,[{sec:4,text:'Invite teammate'}]);assert.equal(a.steps.length,1);assert.equal(a.steps[0].seconds,4)});
+test('invalid AI JSON never becomes a saved draft',async()=>{await assert.rejects(generateSteps({run:async()=>({response:'not json'})},[{sec:0,text:'Hi'}]),/invalid step data/)});
+test('summary questions select captured text even without lexical overlap',()=>{assert.equal(questionMatches([{sec:0,type:'screen',text:'Billing settings'}],'Summarize this walkthrough').length,1)});

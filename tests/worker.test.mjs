@@ -15,3 +15,5 @@ test('private auth and share lifecycle uses sanitized data',async()=>{
  await call('recordings/'+id,null,'DELETE');[r]=await call('recordings/'+id);assert.equal(r.status,404);
 });
 test('device token must authenticate',async()=>{let [r]=await call('recordings',null,'GET',false);assert.equal(r.status,401);});
+
+test('private collections create and update without exposing recording content',async()=>{let [,a]=await call('collections',{title:'Synthetic collection'},'POST');assert.equal(a.collections.length,1);let id=a.collections[0].id;let [,b]=await call('collections/'+id,{description:'Synthetic only',recordingIds:[]},'PATCH');assert.equal(b.description,'Synthetic only');let [r]=await call('collections/'+id,null,'GET',false);assert.equal(r.status,401);await call('collections/'+id,null,'DELETE');});

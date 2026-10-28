@@ -29,3 +29,10 @@ Full parity is unverified. Internal account access is pending. Public claims are
 | Failure events | no permission, no snapshot, auth, quota, offline, too large, revoked | Partial explicit errors; more tests needed |
 
 Source conflicts: landing page lists Free/Pro/Ultimate with 15/30-minute limits; FAQ lists Free/Pro/Enterprise and unlimited duration. Audio/MCP/docs descriptions mix roadmap and present-tense claims. Resolve through direct account inspection instead of copying contradictory promises.
+
+## Second build pass
+- Public password-free reference-style front page added; private workspace moved to /workspace.
+- Actual deployed Workers AI question answering tested with synthetic evidence, then test recording deleted.
+- AI-generated timestamp citations are checked against supplied timestamp strings; invalid citations fall back safely.
+- Smart steps now support manual authoring/reorder/delete, AI drafting from captured text, per-step manual preview zoom and browser device narration. This is not an AI audio export or automatic zoom detector.
+- Private collections support create/edit/delete and selecting recordings. Public hubs and branding remain open.
