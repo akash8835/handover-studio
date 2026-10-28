@@ -64,3 +64,6 @@ User requested these designs on the main site with Google deferred until last. P
 
 ## Reliability fixes, 2026-10-28 22:16 IST
 Reproduced on live isolated synthetic tenants: video Details exposed deletion; comment refresh discarded pending title/description edits; video's Back action incorrectly opened Walkthroughs. Fixed UI/back state/comment refresh. Video DELETE now rejects with 403 and preserves recording/media in free plan. No owner-data writes or destructive cleanup during verification. Animation branch paused and excluded. Legacy production login retained.
+
+## Navigation-race fix
+Reproduced on live synthetic account with a deliberately delayed Projects GET: click Projects then Videos; late Projects response replaced Videos while Videos stayed selected. Home, Projects/Guides and Collections now drop stale responses after leaving the view. Clarified video save copy: public video remains original pixels, not redacted. Video back label now names Videos.
