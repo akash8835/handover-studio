@@ -104,3 +104,5 @@
 @keyframes hero-title-reveal{from{opacity:0;filter:blur(5px);transform:translateY(18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
 @keyframes hero-soft-reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.lp-hero .lp-title-line,.lp-hero .lp-badge,.lp-title-group>p,.lp-hero .lp-actions{animation:none!important;transform:none;filter:none;opacity:1}.lp-hero .lp-actions .lp-dark:before{display:none}}
+
+.reference-shell .resource-editor-heading textarea.resource-title{resize:none;overflow:hidden;overflow-wrap:anywhere;box-sizing:border-box;min-height:0}
