@@ -36,3 +36,10 @@ Source conflicts: landing page lists Free/Pro/Ultimate with 15/30-minute limits;
 - AI-generated timestamp citations are checked against supplied timestamp strings; invalid citations fall back safely.
 - Smart steps now support manual authoring/reorder/delete, AI drafting from captured text, per-step manual preview zoom and browser device narration. This is not an AI audio export or automatic zoom detector.
 - Private collections support create/edit/delete and selecting recordings. Public hubs and branding remain open.
+
+## Functional repair pass
+- Fixed a deployed Cloudflare static-asset redirect that sent /workspace back to the public landing page.
+- Added direct desktop screen video capture with optional microphone/tab audio, review, download backup, private upload and authenticated replay. Full live path tested with the browser's synthetic video source, not real user footage.
+- Video mode AI uses reviewed transcript/notes, not pixels. DOM capture remains the route for silent page-text search.
+- Added beta email/password customer signup/login with salted PBKDF2 hashes and separate storage namespaces; cross-account read tests pass. No email verification, password recovery, SSO or multi-member workspace roles yet. Not commercial-production ready.
+- Free beta caps: 25 new accounts/day, 20 recordings/workspace, 12 MB per video and 18 MB DOM payload.

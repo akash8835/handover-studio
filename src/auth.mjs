@@ -1,0 +1,3 @@
+const enc=new TextEncoder();
+export async function passwordHash(password,salt){const key=await crypto.subtle.importKey('raw',enc.encode(password),{name:'PBKDF2'},false,['deriveBits']);const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:enc.encode(salt),iterations:100000,hash:'SHA-256'},key,256);return [...new Uint8Array(bits)].map(x=>x.toString(16).padStart(2,'0')).join('');}
+export function scopedEnv(env,principal){if(principal==='owner')return env;const store=env.STORE;const prefix='customer:'+principal+':';return {...env,STORE:{get:(k,...a)=>store.get(prefix+k,...a),put:(k,...a)=>store.put(prefix+k,...a),delete:(k,...a)=>store.delete(prefix+k,...a)},GLOBAL:store,PRINCIPAL:principal};}
