@@ -70,3 +70,6 @@ Reproduced on live synthetic account with a deliberately delayed Projects GET: c
 
 ## Extended local acceptance, 2026-10-28 22:29 IST
 Real unpacked extension start/stop/upload/replay passed with masked input events. Simulated video-upload failure retained blob and enabled retry; backup download worked; retry created one item; public synthetic video replay and revocation passed. No live shares or owner writes. Public viewer now distinguishes notes/transcript evidence for video from sanitized DOM text evidence and says original video pixels are unchanged. Live mobile follow-up still awaits login-throttle cooldown.
+
+## Signup visual-only revision, 2026-10-29 00:20 IST
+User selected design now, remaining program work next, login testing at last. Compact left-aligned signup card, field placeholders, inside-password visibility affordance, black button, Handover identity. Google omitted while paused. Existing beta warning and12-character password policy retained. Backend/config unchanged. Only unsubmitted desktop/mobile form rendering checked; no signup/login test or managed-auth cutover.
