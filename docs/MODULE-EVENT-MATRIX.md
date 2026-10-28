@@ -58,3 +58,6 @@ New foundation: reference-style workspace shell and Home, separate Videos/Walkth
 
 ## Design revision, 2026-10-28 22:02 IST
 Re-inspected authenticated reference Videos, Walkthroughs, Projects and Settings. Revised Handover library grid/list, search/sort bar, private cards, walkthrough empty state; Projects/Guides cards and lists; reference-style Settings dialog with general privacy, recorder setup, truthful unavailable members/voice and free limits. Synthetic local UI tests exercise sort/filter/grid/list, resource create/reopen and Settings tabs/close at desktop/mobile sizes. No customer data mutation during design testing. These visual revisions do not complete Google authentication, team sharing, larger storage, AI audio, diagnostic, redaction or smart-demo parity.
+
+## Production design-only release, 2026-10-28 22:11 IST
+User requested these designs on the main site with Google deferred until last. Production worker and deployment config are restored byte-for-byte from commit 58104a00450e7da9835f6b74dddf4c947c46d89c; account-login rendering/behavior is retained from that release. Managed authentication stays on isolated staging, not enabled here. New library/Settings/resource designs and private guide/project editor layout retain existing actions. No production data migration, deletion, or real invitations.

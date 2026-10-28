@@ -16,8 +16,5 @@
   "ai": {
     "binding": "AI"
   },
-  "workers_dev": true,
-  "vars": {
-    "FIREBASE_AUTH": "enabled"
-  }
+  "workers_dev": true
 }
