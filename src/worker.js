@@ -53,7 +53,7 @@ async function answer(req,e,index){let b=await req.json();let q=String(b.questio
 
 function visibleIndex(events,edits){return buildIndex(events).filter(x=>!(edits?.cuts||[]).some(c=>x.sec>=c.start&&x.sec<c.end));}
 
-function recordingIndex(r){return r.kind==='video'?(r.transcript?[{sec:0,text:r.transcript,type:'transcript'}]:[]):visibleIndex(sanitizeEvents(r.events,r.edits.maskedIds),r.edits);}
+function recordingIndex(r){if(!r)return [];return r.kind==='video'?(r.transcript?[{sec:0,text:r.transcript,type:'transcript'}]:[]):visibleIndex(sanitizeEvents(r.events,r.edits.maskedIds),r.edits);}
 function videoResponse(r){const bin=atob(r.video),bytes=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);return new Response(bytes,{headers:{'content-type':r.mime,'cache-control':'private, no-store','x-content-type-options':'nosniff'}});}
 
 async function aiLimit(req,e,scope){const store=e.GLOBAL||e.STORE;const ip=req.headers.get('cf-connecting-ip')||'unknown';const key='ai-limit:'+await digest(scope+':'+ip)+':'+new Date().toISOString().slice(0,13);const n=+(await store.get(key)||0);if(n>=30)throw Error('AI request limit reached for this hour. Try again later.');await store.put(key,String(n+1),{expirationTtl:7200});}
