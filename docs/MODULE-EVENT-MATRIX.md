@@ -8,8 +8,8 @@ Full parity is unverified. Internal account access is pending. Public claims are
 |---|---|---|
 | Identity | signup, verify, SSO, login, logout, reset | Owner password login/logout only |
 | Workspace | create, switch, invite, role changes, revoke | Personal workspace only |
-| Capture | install, pair, permissions, start, cancel, stop, retry | Single-tab DOM capture; browser acceptance pending |
-| Web events | click, scroll, pointer, input, DOM mutation, navigation, reload, tab switch | rrweb events and same-tab reload; tab switch pending |
+| Capture | install, pair, permissions, start, cancel, stop, retry | Single-tab DOM capture; synthetic Chrome capture/upload/replay passed, user-device acceptance pending |
+| Web events | click, scroll, pointer, input, DOM mutation, navigation, reload, tab switch | rrweb click/scroll/input/DOM capture verified synthetically; reload/tab switch acceptance pending |
 | Audio | mic permission, device, tab audio, transcription | Not built |
 | Smart demos | steps, reorder, hotspots, zoom, voiceover | Not built; reference inspection needed |
 | Library | list, title search, open, rename, describe, delete | Implemented foundation |

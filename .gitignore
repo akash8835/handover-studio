@@ -6,3 +6,5 @@ dist/
 *.log
 scripts/push-api.mjs
 scripts/deploy.mjs
+
+scripts/verify-live.mjs
