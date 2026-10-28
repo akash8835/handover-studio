@@ -89,3 +89,18 @@
 @media(prefers-reduced-motion:reduce){.lp-hero .lp-highlight{clip-path:none;opacity:.6}.lp-click-ripple{display:none}}
 .lp-cursor-stage{z-index:3}
 @media(min-width:1024px){.lp-hero+.lp-product{position:relative;margin-top:-120px}}
+/* A quieter cinematic layer around the working cursor choreography. */
+.lp-hero{overflow:hidden;background:radial-gradient(ellipse 390px 250px at 64% 41%,#d6f4db44,transparent 80%),radial-gradient(ellipse 360px 240px at 33% 48%,#f5d3eb3d,transparent 80%),#fafafa}
+.lp-hero-inner:before{content:'';position:absolute;inset:-56px -36px -72px;z-index:-1;pointer-events:none;background:radial-gradient(circle,#aab7ad75 .65px,transparent .85px) 0 0/19px 19px;mask-image:radial-gradient(ellipse 48% 50% at 50% 48%,#0002,transparent 100%)}
+.lp-hero .lp-badge{background:linear-gradient(120deg,#fff,#f9fcf9 58%,#fff);border-color:#d5dbd6;box-shadow:0 0 0 4px #e6eae680,0 4px 16px #1e222606;animation:hero-soft-reveal .7s cubic-bezier(.22,1,.36,1) both}
+.lp-hero .lp-title-line{animation:hero-title-reveal 1s cubic-bezier(.22,1,.36,1) both;animation-delay:.08s}.lp-hero .lp-title-line+.lp-title-line{animation-delay:.18s}
+.lp-title-group>p{animation:hero-soft-reveal 1s cubic-bezier(.22,1,.36,1) .3s both}.lp-hero .lp-actions{animation:hero-soft-reveal 1s cubic-bezier(.22,1,.36,1) .42s both}
+.lp-hero .lp-highlight{box-shadow:0 8px 24px #ea7dc012}.lp-hero .handover-phrase .lp-highlight{box-shadow:0 8px 24px #7acb8712}
+.landing .lp-hero .lp-actions .lp-dark{position:relative;overflow:hidden;background:linear-gradient(160deg,#292d2b,#090b0a 80%);border:1px solid #fff2;box-shadow:inset 0 1px 0 #ffffff24,0 4px 8px #19261b12,0 12px 24px #19261b12;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,border-color .25s}
+.lp-hero .lp-actions .lp-dark:before{content:'';position:absolute;inset:-30px;background:linear-gradient(110deg,transparent 35%,#ffffff22 49%,transparent 64%);transform:translateX(-120%);transition:transform .65s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.landing .lp-hero .lp-actions .lp-dark:hover,.landing .lp-hero .lp-actions .lp-dark:focus-visible{transform:translateY(-3px);box-shadow:inset 0 1px 0 #ffffff30,0 8px 16px #19261b18,0 16px 35px #19261b18;border-color:#fff5}.lp-hero .lp-actions .lp-dark:hover:before,.lp-hero .lp-actions .lp-dark:focus-visible:before{transform:translateX(120%)}
+.lp-hero .lp-actions .lp-dark:active{transform:translateY(-1px) scale(.985)}.lp-hero .lp-secondary{background:#ffffffb3;box-shadow:inset 0 1px 0 #fff,0 2px 5px #1c232105;border-color:#c0c7c1;transition:transform .25s,border-color .25s,box-shadow .25s}.lp-hero .lp-secondary:hover,.lp-hero .lp-secondary:focus-visible{transform:translateY(-3px);border-color:#8f9d92;box-shadow:0 8px 20px #19261b0d}
+.lp-hero .lp-actions i{box-shadow:0 0 0 4px #ff5a3815,0 0 14px #ff5a3828}
+@keyframes hero-title-reveal{from{opacity:0;filter:blur(5px);transform:translateY(18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes hero-soft-reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.lp-hero .lp-title-line,.lp-hero .lp-badge,.lp-title-group>p,.lp-hero .lp-actions{animation:none!important;transform:none;filter:none;opacity:1}.lp-hero .lp-actions .lp-dark:before{display:none}}
