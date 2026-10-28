@@ -50,3 +50,8 @@ Source conflicts: landing page lists Free/Pro/Ultimate with 15/30-minute limits;
 - Public redacted DOM replay omits generated steps/comments because they may still quote now-redacted text.
 - AI calls are rate-limited per principal/IP/hour on the free beta; this is KV best-effort, not a transactional abuse control.
 - Still unresolved: secure transactional identity/store, email verification/reset, durable video storage/range streaming, media privacy review, true element-following masks, all reference internal workflows.
+
+## Authenticated reference inspection, 2026-10-28
+Free reference account verified with approved email. Observed app Home, Videos, Walkthroughs, Projects, Guides and Settings. Sources: https://app.demoly.dev/ ; https://app.demoly.dev/walkthroughs ; https://app.demoly.dev/projects ; https://app.demoly.dev/guides . Reference Record requires extension installation. Guide editor has sections, video/walkthrough/PDF/link additions. Team creator/admin invites trigger paid plan, so no invite or upgrade attempted.
+
+New foundation: reference-style workspace shell and Home, separate Videos/Walkthroughs, private durable Projects with folders and recording membership, private Guides with sections, recording membership and safe HTTP links. Create, rename, reorder, remove, save/reopen, search, sort, grid/list and deletion are implemented. 17 unit/API tests and desktop/mobile UI flows pass locally. Project/guide team sharing, PDF upload, public hubs and reference capture-editor parity remain incomplete. Existing Collections kept separately for compatibility. No billing or reference affiliation.
