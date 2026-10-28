@@ -67,3 +67,6 @@ Reproduced on live isolated synthetic tenants: video Details exposed deletion; c
 
 ## Navigation-race fix
 Reproduced on live synthetic account with a deliberately delayed Projects GET: click Projects then Videos; late Projects response replaced Videos while Videos stayed selected. Home, Projects/Guides and Collections now drop stale responses after leaving the view. Clarified video save copy: public video remains original pixels, not redacted. Video back label now names Videos.
+
+## Extended local acceptance, 2026-10-28 22:29 IST
+Real unpacked extension start/stop/upload/replay passed with masked input events. Simulated video-upload failure retained blob and enabled retry; backup download worked; retry created one item; public synthetic video replay and revocation passed. No live shares or owner writes. Public viewer now distinguishes notes/transcript evidence for video from sanitized DOM text evidence and says original video pixels are unchanged. Live mobile follow-up still awaits login-throttle cooldown.
