@@ -1,0 +1,20 @@
+{
+  "name": "handover-studio",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-28",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "STORE",
+      "id": "385aa0ccbd024daebffe7a097c1b31ca"
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  },
+  "workers_dev": true
+}
