@@ -17,3 +17,5 @@ test('private auth and share lifecycle uses sanitized data',async()=>{
 test('device token must authenticate',async()=>{let [r]=await call('recordings',null,'GET',false);assert.equal(r.status,401);});
 
 test('private collections create and update without exposing recording content',async()=>{let [,a]=await call('collections',{title:'Synthetic collection'},'POST');assert.equal(a.collections.length,1);let id=a.collections[0].id;let [,b]=await call('collections/'+id,{description:'Synthetic only',recordingIds:[]},'PATCH');assert.equal(b.description,'Synthetic only');let [r]=await call('collections/'+id,null,'GET',false);assert.equal(r.status,401);await call('collections/'+id,null,'DELETE');});
+
+test('generate-steps route is wired and returns a clear AI configuration error',async()=>{let [,b]=await call('recordings',{title:'Synthetic step routing',events,duration:10},'POST');let [r,a]=await call('recordings/'+b.id+'/generate-steps',{},'POST');assert.equal(r.status,400);assert.match(a.error,/AI is not connected/);await call('recordings/'+b.id,null,'DELETE');});
