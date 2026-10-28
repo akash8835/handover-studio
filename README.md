@@ -21,3 +21,7 @@ UI and API tests use only synthetic content. No private footage is captured. Tes
 
 ## Deploy
 Cloudflare Worker with static assets, dedicated KV and optional AI binding, all on existing free allowances. `PASSWORD_HASH` is the SHA-256 hash of the securely supplied owner password. The app is locked while this secret is absent. Never commit passwords/tokens. Build app assets, zip the extension directory into dist/extension.zip, push source to GitHub first, then deploy.
+
+## Latest functional changes
+
+The public front page is password-free. /workspace now has customer email/password beta sign-in and an explicit owner-sign-in option. /signup creates a separate personal workspace. Email verification, password reset and team roles are still absent; do not use for sensitive customer data. Direct desktop screen video capture now supports stop/review/private upload/replay and optional mic/tab audio. Video AI uses reviewed transcript/notes, not pixel analysis. Live synthetic capture/upload/replay/AI and customer signup/login tests passed; synthetic records/accounts were deleted after testing. The live user device, permission picker and actual footage remain unverified.
