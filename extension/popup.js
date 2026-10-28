@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id);
 chrome.storage.local.get(['studioUrl','deviceToken']).then(s=>{$('url').value=s.studioUrl||'';$('token').value=s.deviceToken||'';});
-chrome.runtime.sendMessage({kind:'status'}).then(s=>$('status').textContent=s.recording?'Recording in progress.':'Ready.');
+chrome.runtime.sendMessage({kind:'status'}).then(s=>$('status').textContent=s.error|| (s.pendingUpload?'Recording kept locally. Use Stop to retry saving.':s.recording?'Recording in progress.':'Ready.'));
 $('start').onclick=async()=>{try{
  let url=$('url').value.replace(/\/$/,'');if(!url.startsWith('https://')&&!url.startsWith('http://localhost'))throw Error('Use an HTTPS Studio URL.');
  const [tab]=await chrome.tabs.query({active:true,currentWindow:true});const origin=new URL(tab.url).origin+'/*';
