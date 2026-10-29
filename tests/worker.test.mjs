@@ -84,3 +84,9 @@ test('MCP grant includes only selected sanitized snapshot and revokes immediatel
  await call('mcp-grants/'+grant.id+'/revoke',{},'POST');assert.equal((await rpc('tools/list'))[0].status,401);
  assert.equal((await call('mcp-grants',{recordingIds:['missing'],days:1},'POST'))[0].status,400);
 });
+test('redaction invalidates MCP by consistent recording epoch even when grant registry is stale',async()=>{
+ const[,record]=await call('recordings',{title:'Synthetic epoch',events,duration:3},'POST');const[,grant]=await call('mcp-grants',{recordingIds:[record.id]},'POST');assert(grant.token);
+ const stored=map.get('mcp-grants');map.set('mcp-grants','[]');await call('recordings/'+record.id,{edits:{maskedIds:[3],cuts:[],cursor:true}},'PATCH');map.set('mcp-grants',stored);
+ const response=await worker.fetch(new Request('https://studio.test/api/mcp',{method:'POST',headers:{authorization:'Bearer '+grant.token,'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:'tools/list'})}),e);assert.equal(response.status,401);
+ assert.equal((await call('mcp-grants',{recordingIds:[record.id]},'POST'))[0].status,400);
+});
