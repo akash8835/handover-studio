@@ -1,6 +1,6 @@
 {
   "name": "handover-studio",
-  "main": "src/worker.js",
+  "main": "src/index.mjs",
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist",
@@ -22,6 +22,14 @@
       {
         "name": "PUBLICATIONS",
         "class_name": "PublicationGate"
+      },
+      {
+        "name": "LIBRARY",
+        "class_name": "SerializedLibrary"
+      },
+      {
+        "name": "REGISTRY_CONTROL",
+        "class_name": "RegistryMode"
       }
     ]
   },
@@ -30,6 +38,13 @@
       "tag": "publication-gate-v1",
       "new_sqlite_classes": [
         "PublicationGate"
+      ]
+    },
+    {
+      "tag": "library-registry-v1",
+      "new_sqlite_classes": [
+        "SerializedLibrary",
+        "RegistryMode"
       ]
     }
   ]
