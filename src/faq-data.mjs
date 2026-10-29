@@ -123,7 +123,7 @@ export const faqItems=[
     "id": "21",
     "category": "AI Capabilities, Multi-Video Search & Documentation Roadmap",
     "question": "What export formats will be supported for generated documentation?",
-    "answer": "Private guides can be read and edited in the workspace. Dedicated PDF, Word, Markdown and public documentation export are not released."
+    "answer": "Private guides can be read and edited in the workspace. Reviewed public guide snapshots are available. Dedicated PDF, Word and Markdown exports are not released."
   },
   {
     "id": "22",
@@ -417,7 +417,7 @@ export const faqItems=[
     "id": "70",
     "category": "Publishing, Sharing, Access Control & Privacy",
     "question": "What publishing and sharing modes exist in Handover?",
-    "answer": "Recordings start private. The creator can explicitly create a public viewer link and embed code, then revoke it. Public collection/guide hubs and shared-team workspaces are not released."
+    "answer": "Recordings start private. The creator can explicitly create a public viewer link and embed code, then revoke it. Reviewed public guide snapshots can be published and revoked explicitly. Public collections and shared-team workspaces are not released."
   },
   {
     "id": "71",
