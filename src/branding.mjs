@@ -1,0 +1,1 @@
+export function normalizeBranding(b={}){const name=String(b.name||'Handover Studio').trim();if(!name||name.length>80)throw Error('Brand name must be1to80characters.');const accent=String(b.accent||'#f35a32');if(!/^#[a-fA-F0-9]{6}$/.test(accent))throw Error('Use a six-digit hex color.');return{name,accent:accent.toLowerCase()};}
