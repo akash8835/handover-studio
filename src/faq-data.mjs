@@ -123,7 +123,7 @@ export const faqItems=[
     "id": "21",
     "category": "AI Capabilities, Multi-Video Search & Documentation Roadmap",
     "question": "What export formats will be supported for generated documentation?",
-    "answer": "Private guides can be read and edited in the workspace. Reviewed public guide snapshots are available. Markdown and printable HTML guide downloads are available. Open HTML and use browser Print to Save as PDF. Dedicated Word and native PDF export are not released."
+    "answer": "Private guides can be read and edited in the workspace. Reviewed public guide snapshots are available. Markdown, printable HTML, direct PDF and Word (.docx) text-and-link downloads are available. No private recording files are embedded or shared. PDF supports Latin and Devanagari; unsupported characters stop the export instead of being omitted. Review downloaded files before sharing."
   },
   {
     "id": "22",

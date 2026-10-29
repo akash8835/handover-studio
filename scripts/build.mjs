@@ -9,3 +9,9 @@ await build({entryPoints:['src/document-worker.mjs'],bundle:true,outfile:'dist/d
 await copyFile('node_modules/pdfjs-dist/build/pdf.worker.mjs','dist/pdf.worker.mjs');
 await copyFile('node_modules/pdfjs-dist/LICENSE','dist/licenses/pdfjs-Apache-2.0.txt');
 await copyFile('node_modules/mammoth/LICENSE','dist/licenses/mammoth-BSD-2-Clause.txt');
+
+await copyFile('node_modules/pdf-lib/LICENSE.md','dist/licenses/pdf-lib-MIT.txt');
+await copyFile('node_modules/docx/LICENSE','dist/licenses/docx-MIT.txt');
+
+await build({entryPoints:['src/guide-native-export.mjs'],bundle:true,outfile:'dist/guide-native-export.js',format:'esm',minify:true});
+await copyFile('node_modules/regenerator-runtime/LICENSE','dist/licenses/regenerator-MIT.txt');
