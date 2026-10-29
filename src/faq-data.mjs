@@ -9,7 +9,7 @@ export const faqItems=[
     "id": "2",
     "category": "AI Architecture, Visual Indexing & Search Engine",
     "question": "What data streams are processed and indexed by Handover's AI?",
-    "answer": "Browser walkthrough search uses sanitized captured DOM text, navigation and interaction events. Screen videos use creator-supplied transcript or notes. Timestamp comments are searchable privately. Server transcription, OCR and video-frame reasoning are not released."
+    "answer": "Browser walkthrough search uses sanitized captured DOM text, navigation and interaction events. Screen videos use creator-supplied transcript or notes. Timestamp comments are searchable privately. Language tools can draft transcripts/subtitles from local audio/video up to 120 seconds and 12 MB for review. These drafts are not automatically saved into recording search. OCR and video-frame reasoning are not released."
   },
   {
     "id": "3",
@@ -87,7 +87,7 @@ export const faqItems=[
     "id": "15",
     "category": "AI Architecture, Visual Indexing & Search Engine",
     "question": "What are the known AI limitations in the current version?",
-    "answer": "Video pixels, OCR, automatic server transcription, image reasoning, automatic bug detection and guaranteed full-workflow understanding are not released. Shared AI quota and captured evidence also limit answers."
+    "answer": "Video-pixel reasoning, OCR, image reasoning, automatic bug detection and guaranteed full-workflow understanding are not released. Short audio/video transcription drafts are available in Language tools. Shared AI quota and captured evidence also limit answers."
   },
   {
     "id": "16",
@@ -123,7 +123,7 @@ export const faqItems=[
     "id": "21",
     "category": "AI Capabilities, Multi-Video Search & Documentation Roadmap",
     "question": "What export formats will be supported for generated documentation?",
-    "answer": "Private guides can be read and edited in the workspace. Reviewed public guide snapshots are available. Dedicated PDF, Word and Markdown exports are not released."
+    "answer": "Private guides can be read and edited in the workspace. Reviewed public guide snapshots are available. Markdown and printable HTML guide downloads are available. Open HTML and use browser Print to Save as PDF. Dedicated Word and native PDF export are not released."
   },
   {
     "id": "22",
@@ -417,7 +417,7 @@ export const faqItems=[
     "id": "70",
     "category": "Publishing, Sharing, Access Control & Privacy",
     "question": "What publishing and sharing modes exist in Handover?",
-    "answer": "Recordings start private. The creator can explicitly create a public viewer link and embed code, then revoke it. Reviewed public guide snapshots can be published and revoked explicitly. Public collections and shared-team workspaces are not released."
+    "answer": "Recordings start private. The creator can explicitly create a public viewer link and embed code, then revoke it. Reviewed public guide snapshots can be published and revoked explicitly. Reviewed public collection hubs are available. Shared-team workspaces are not released."
   },
   {
     "id": "71",
@@ -567,7 +567,7 @@ export const faqItems=[
     "id": "95",
     "category": "Recording Capabilities, Mechanics & Boundaries",
     "question": "How does Handover handle embedded videos, iframes, and PDFs inside a webpage?",
-    "answer": "A screen video can show visible pixels, subject to browser restrictions. DOM capture cannot reliably inspect cross-origin iframe, embedded-video or PDF internals. PDF/document uploads and visual indexing are not released."
+    "answer": "A screen video can show visible pixels, subject to browser restrictions. DOM capture cannot reliably inspect cross-origin iframe, embedded-video or PDF internals. Private PDF/DOCX/TXT/Markdown uploads support reviewed text extraction with limits. Scanned PDF OCR and visual indexing are not released."
   },
   {
     "id": "96",
@@ -609,7 +609,7 @@ export const faqItems=[
     "id": "102",
     "category": "Security, Data Handling & Failure Edge Cases",
     "question": "What is the long-term future vision for Handover?",
-    "answer": "Further work includes exported narration, stronger team/document workflows, larger recordings and richer media understanding. Read-only selected-recording MCP setup and trim/cut/fixed blur are live. Roadmap items are not delivery guarantees."
+    "answer": "English audio narration downloads, short transcription drafts, private document import and reviewed public guides/hubs are available. Further work includes narrated-video composition, team workflows, larger recordings and richer media understanding. Read-only selected-recording MCP setup and trim/cut/fixed blur are live. Roadmap items are not delivery guarantees."
   },
   {
     "id": "103",
@@ -645,7 +645,7 @@ export const faqItems=[
     "id": "108",
     "category": "Target Personas, Use Cases & Workflows",
     "question": "What is the exact step-by-step workflow for Client Project Handover?",
-    "answer": "Record a focused workflow, review its contents, save clear steps and create a private guide if useful. Explicitly enable and send a viewer link when ready. Public guide hubs and client-specific permission roles are not released."
+    "answer": "Record a focused workflow, review its contents, save clear steps and create a private guide if useful. Explicitly enable and send a viewer link when ready. Reviewed public collection hubs are available. Client-specific permission roles are not released."
   },
   {
     "id": "109",
