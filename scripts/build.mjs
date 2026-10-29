@@ -17,3 +17,5 @@ await build({entryPoints:['src/guide-native-export.mjs'],bundle:true,outfile:'di
 await copyFile('node_modules/regenerator-runtime/LICENSE','dist/licenses/regenerator-MIT.txt');
 
 await build({entryPoints:['src/dom-video.mjs'],bundle:true,outfile:'dist/dom-video-export.js',format:'esm',minify:true});
+
+await build({entryPoints:['src/local-ocr.mjs'],bundle:true,outfile:'dist/local-ocr.js',format:'esm',minify:true});
