@@ -1,10 +1,12 @@
+import{normalizeCamera,cameraAt,cameraCrop}from'./camera.mjs';
 import{createTracker}from'./tracker.mjs';
 import {Input, BlobSource, ALL_FORMATS, Output, BufferTarget, WebMOutputFormat, VideoSampleSink, VideoSampleSource, VideoSample, AudioSampleSink, AudioSampleSource} from 'mediabunny';
 
 // Decode only retained sample content, then encode a new independent asset.
-export async function offline(blob, {segments, rect, tracking=false, replacementAudio=null, includeAudio = true, signal, onProgress = () => {}}) {
+export async function offline(blob, {segments, rect, tracking=false, replacementAudio=null, camera=null, includeAudio = true, signal, onProgress = () => {}}) {
   if(tracking&&(!rect||!Array.isArray(segments)||segments.length!==1||segments[0].end-segments[0].start>20))throw Error('Tracking requires one kept range up to20seconds and a selected region.');
   if(replacementAudio&&(!(replacementAudio instanceof Blob)||replacementAudio.size>3000000||segments.reduce((n,s)=>n+s.end-s.start,0)>120))throw Error('Narrated export supports audio up to 3 MB and video up to 120 seconds.');
+  const cameraPoints=camera?normalizeCamera(camera,segments.reduce((n,s)=>n+s.end-s.start,0)):null;
   const input = new Input({source: new BlobSource(blob), formats: ALL_FORMATS});
   const replacement=replacementAudio?new Input({source:new BlobSource(replacementAudio),formats:ALL_FORMATS}):null;
   let out,tracker,lastSourceTime=null;const trackingStarted=Date.now();
@@ -13,7 +15,7 @@ export async function offline(blob, {segments, rect, tracking=false, replacement
     check();
     const video = await input.getPrimaryVideoTrack();
     const audio = includeAudio && !replacement ? await input.getPrimaryAudioTrack() : null;
-    if (!video) throw Error('No video track was found.');if(replacement&&(video.displayWidth>1280||video.displayHeight>720))throw Error('Narrated export supports up to1280x720.');
+    if (!video) throw Error('No video track was found.');if((replacement||cameraPoints)&&(video.displayWidth>1280||video.displayHeight>720))throw Error('Narrated export supports up to1280x720.');
     if(tracking&&(video.displayWidth>640||video.displayHeight>360))throw Error('Experimental tracking supports videos up to640x360. Use fixed blur for larger recordings.');
     const narration=replacement?await replacement.getPrimaryAudioTrack():null;const totalDuration=segments.reduce((n,s)=>n+s.end-s.start,0);if(replacement){if(!narration)throw Error('The narration file has no audio track.');const d=await replacement.computeDuration();if(!Number.isFinite(d)||d<=0||d>totalDuration+.02)throw Error('Narration is longer than the selected video. Choose a longer video range or shorter narration. Audio is never silently cut or stretched.');}
     const target = new BufferTarget();
@@ -51,6 +53,7 @@ export async function offline(blob, {segments, rect, tracking=false, replacement
                 sample.draw(c, 0, 0);
                 c.restore();
               }
+              if(cameraPoints){const crop=cameraCrop(cameraAt(cameraPoints,base+sample.timestamp-seg.start),canvas.width,canvas.height),copy=new OffscreenCanvas(canvas.width,canvas.height);copy.getContext('2d').drawImage(canvas,0,0);c.clearRect(0,0,canvas.width,canvas.height);c.drawImage(copy,crop.x,crop.y,crop.width,crop.height,0,0,canvas.width,canvas.height);}
               next = new VideoSample(canvas, {timestamp: base + sample.timestamp - seg.start, duration});
               await vs.add(next);
               count++;
