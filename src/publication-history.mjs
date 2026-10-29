@@ -1,0 +1,1 @@
+export function publicationHistory(previous={},next={}){const keys=[...new Set([...(previous.snapshotKeys||[]),...(next.snapshotKeys||[]),previous.snapshot?.key,next.snapshot?.key].filter(Boolean))];if(keys.length>20)throw Error('Publication revision limit reached. Current link remains unchanged.');return{...next,...(keys.length?{snapshotKeys:keys}:{})};}
