@@ -1,0 +1,7 @@
+The Handover browser bundle includes Mediabunny 1.63.0 by Vanilagy.
+Mediabunny is distributed under the Mozilla Public License 2.0.
+The complete license is included in mediabunny-MPL-2.0.txt.
+Source for the unmodified library is available at:
+https://www.npmjs.com/package/mediabunny/v/1.63.0
+https://github.com/Vanilagy/mediabunny
+This product uses the library without source changes.

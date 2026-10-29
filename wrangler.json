@@ -16,5 +16,21 @@
   "ai": {
     "binding": "AI"
   },
-  "workers_dev": true
+  "workers_dev": true,
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "PUBLICATIONS",
+        "class_name": "PublicationGate"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "publication-gate-v1",
+      "new_sqlite_classes": [
+        "PublicationGate"
+      ]
+    }
+  ]
 }
