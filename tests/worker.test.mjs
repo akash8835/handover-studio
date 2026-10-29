@@ -74,8 +74,8 @@ test('same edited content retry reuses saved revision rather than adding another
  const[,first]=await call('recordings/'+id+'/edited-video',edit,'POST');const[,second]=await call('recordings/'+id+'/edited-video',edit,'POST');assert.equal(second.reused,true);assert.equal(first.id,second.id);const[,owner]=await call('recordings/'+id);assert.equal(owner.videoEditVersions.length,1);
 });
 test('MCP grant includes only selected sanitized snapshot and revokes immediately',async()=>{
- const[,created]=await call('recordings',{title:'Synthetic MCP selected',events,duration:10},'POST');const id=created.id;
- await call('recordings/'+id,{edits:{maskedIds:[3],cuts:[],cursor:true}},'PATCH');await call('recordings/'+id+'/comment',{sec:1,text:'PRIVATE CREATOR NOTE'},'POST');
+ const safeEvents=structuredClone(events);safeEvents[1].data.node.childNodes[0].childNodes=safeEvents[1].data.node.childNodes[0].childNodes.filter(x=>x.id!==3);const[,created]=await call('recordings',{title:'Synthetic MCP selected',events:safeEvents,duration:10},'POST');const id=created.id;
+ await call('recordings/'+id+'/comment',{sec:1,text:'PRIVATE CREATOR NOTE'},'POST');
  const[r,grant]=await call('mcp-grants',{recordingIds:[id],days:1,title:'Synthetic MCP'},'POST');assert.equal(r.status,201);assert(grant.token);
  const rpc=async(method,params,token=grant.token)=>{const response=await worker.fetch(new Request('https://studio.test/api/mcp',{method:'POST',headers:{authorization:'Bearer '+token,'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params})}),e);return[response,await response.json()]};
  let[,body]=await rpc('initialize');assert.equal(body.result.protocolVersion,'2025-06-18');[,body]=await rpc('tools/call',{name:'get_selected_recording',arguments:{recording_id:id}});const text=JSON.stringify(body);assert(text.includes('Invite teammate'));assert(!text.includes('SYNTHETIC SECRET VALUE'));assert(!text.includes('PRIVATE CREATOR NOTE'));assert(!text.includes('childNodes'));
