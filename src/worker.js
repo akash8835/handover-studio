@@ -1,3 +1,4 @@
+import{generateNarration}from'./narration.mjs';
 import {handleMcp} from './mcp.mjs';
 import {createSnapshot} from './mcp-snapshot.mjs';
 export {PublicationGate} from './publication-gate.mjs';
@@ -58,6 +59,7 @@ async function handle(req,e){const url=new URL(req.url),p=url.pathname;
  if(req.method!=='POST')return json({error:'Use POST'},405);const b=await req.json();if(b.reviewed!==true||b.revision!==state.revision||b.sourceDigest!==state.payload.evidenceDigest)throw Error('Evidence changed. Review it again.');
  await client.publish(state.revision,uuid(),{...state.payload,active:true});return json({ok:true});
  }
+ if(p==='/api/narration'){if(req.method!=='POST')return json({error:'Use POST'},405);await aiLimit(req,e,principal);const bytes=await generateNarration(e.AI,await req.json());return new Response(bytes,{headers:{'content-type':'audio/mpeg','content-disposition':'attachment; filename=handover-narration.mp3','cache-control':'private, no-store','x-content-type-options':'nosniff'}});}
  if(p==='/api/documents'){
  const docs=await load(e,'documents',[]);if(req.method==='GET')return json({documents:docs});if(req.method!=='POST')return json({error:'Use POST'},405);if(docs.length>=20)throw Error('Maximum 20 private documents.');const b=await req.json();if(typeof b.data!=='string'||b.data.length>6666668||!/^[A-Za-z0-9+/=]+$/.test(b.data)||typeof b.text!=='string'||b.text.length>100000||!b.text.trim()||!['pdf','docx','txt','md'].includes(b.format))throw Error('Invalid document or extracted text.');if(b.reviewed!==true)throw Error('Review extracted text before saving.');const id=uuid(),document={id,title:String(b.title||'Document').slice(0,160),format:b.format,data:b.data,text:b.text,pages:Math.max(0,Number(b.pages)||0),createdAt:new Date().toISOString()};await put(e,'document:'+id,document);docs.unshift({id,title:document.title,format:document.format,pages:document.pages,createdAt:document.createdAt});await put(e,'documents',docs);return json({id},201);
  }
