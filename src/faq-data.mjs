@@ -255,7 +255,7 @@ export const faqItems=[
     "id": "43",
     "category": "Editing, Non-Destructive Storage & Element-Level Masking",
     "question": "What video editing functionality is available today?",
-    "answer": "Screen videos support start/end trim, multiple middle cuts and genuine fixed-region blur saved to edited WebM playback at the same share link. Original media remains private. DOM editing supports skip ranges, cursor visibility and selected text-node redaction. Moving-object tracking and exported AI narration are not released."
+    "answer": "Screen videos support start/end trim, multiple middle cuts and genuine fixed-region blur saved to edited WebM playback at the same share link. Original media remains private. DOM editing supports skip ranges, cursor visibility and selected text-node redaction. Separate experimental moving blur supports one range up to 20 seconds at 640x360 with a distinct textured target, failure stops and mandatory full output review; it is not a privacy guarantee. Screen videos can locally download narrated WebM using reviewed audio up to 3 MB and 120 seconds at 1280x720; original audio is replaced and saved links do not change. Automatic narration timing and exported camera movement are not included."
   },
   {
     "id": "44",
@@ -291,7 +291,7 @@ export const faqItems=[
     "id": "49",
     "category": "Editing, Non-Destructive Storage & Element-Level Masking",
     "question": "How does Handover's element-level masking (redaction) work?",
-    "answer": "DOM masks remove selected captured text identities from sanitized replay and search. Screen-video blur is separately encoded into a fixed region of the exported frames. Neither is automatic moving-element tracking."
+    "answer": "DOM masks remove selected captured text identities from sanitized replay and search. Screen-video blur is separately encoded into a fixed region of the exported frames. Neither fixed method follows motion. A separate experimental moving-blur mode is limited to 20 seconds at 640x360, requires a distinct textured target and complete output review, and is not a privacy guarantee."
   },
   {
     "id": "50",
@@ -309,7 +309,7 @@ export const faqItems=[
     "id": "52",
     "category": "Editing, Non-Destructive Storage & Element-Level Masking",
     "question": "Can redactions be applied to specific timestamps or elements?",
-    "answer": "DOM masks target captured text nodes. Screen-video blur targets a fixed percentage-based rectangle throughout the selected export. It does not follow moving objects or support a per-timestamp animated mask."
+    "answer": "DOM masks target captured text nodes. Screen-video blur targets a fixed percentage-based rectangle throughout the selected export. This fixed mode does not follow motion. Separate experimental moving blur has strict 20-second/640x360 bounds, stops on lost or ambiguous targets and requires full generated-output review. It is not general object recognition or a privacy guarantee."
   },
   {
     "id": "53",
@@ -537,7 +537,7 @@ export const faqItems=[
     "id": "90",
     "category": "Recording Capabilities, Mechanics & Boundaries",
     "question": "Are there limits on recording duration, file size, or number of recordings?",
-    "answer": "Current beta limits are 20 recordings per workspace, 12 MB per screen video and 18 MB per DOM timeline. There is no unlimited storage promise. Planned paid-plan minute allowances are not active today."
+    "answer": "Current customer beta storage capacity is 20 recordings, 12 MB per screen video and 18 MB per DOM timeline. Customer Free duration is up to 15 minutes. The existing developer owner account is exempt from subscription count/duration quotas, not technical file-size or free-provider capacity. There is no unlimited storage promise. Planned paid-plan minute allowances are not active today."
   },
   {
     "id": "91",
@@ -609,7 +609,7 @@ export const faqItems=[
     "id": "102",
     "category": "Security, Data Handling & Failure Edge Cases",
     "question": "What is the long-term future vision for Handover?",
-    "answer": "English audio narration downloads, short transcription drafts, private document import and reviewed public guides/hubs are available. Further work includes narrated-video composition, team workflows, larger recordings and richer media understanding. Read-only selected-recording MCP setup and trim/cut/fixed blur are live. Roadmap items are not delivery guarantees."
+    "answer": "English audio narration downloads, short transcription drafts, private document import and reviewed public guides/hubs are available. Local narrated WebM downloads with reviewed replacement audio and bounded experimental moving blur are available. Automatic timing, exported camera movement, team workflows, larger recordings and richer media understanding remain open. Read-only selected-recording MCP setup and trim/cut/fixed blur are live. Roadmap items are not delivery guarantees."
   },
   {
     "id": "103",
