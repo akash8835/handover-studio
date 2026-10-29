@@ -5,3 +5,7 @@ await cp('public','dist',{recursive:true});
 await build({entryPoints:['src/app.js'],bundle:true,outfile:'dist/app.js',format:'esm',minify:true});
 await build({entryPoints:['src/capture.js'],bundle:true,outfile:'extension/capture.js',format:'iife',minify:true});
 await copyFile('node_modules/rrweb-player/dist/style.css','dist/player.css');
+await build({entryPoints:['src/document-worker.mjs'],bundle:true,outfile:'dist/document-worker.js',format:'esm',minify:true});
+await copyFile('node_modules/pdfjs-dist/build/pdf.worker.mjs','dist/pdf.worker.mjs');
+await copyFile('node_modules/pdfjs-dist/LICENSE','dist/licenses/pdfjs-Apache-2.0.txt');
+await copyFile('node_modules/mammoth/LICENSE','dist/licenses/mammoth-BSD-2-Clause.txt');
