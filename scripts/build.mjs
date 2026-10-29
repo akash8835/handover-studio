@@ -15,3 +15,5 @@ await copyFile('node_modules/docx/LICENSE','dist/licenses/docx-MIT.txt');
 
 await build({entryPoints:['src/guide-native-export.mjs'],bundle:true,outfile:'dist/guide-native-export.js',format:'esm',minify:true});
 await copyFile('node_modules/regenerator-runtime/LICENSE','dist/licenses/regenerator-MIT.txt');
+
+await build({entryPoints:['src/dom-video.mjs'],bundle:true,outfile:'dist/dom-video-export.js',format:'esm',minify:true});
