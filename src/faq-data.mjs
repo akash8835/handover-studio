@@ -609,7 +609,7 @@ export const faqItems=[
     "id": "102",
     "category": "Security, Data Handling & Failure Edge Cases",
     "question": "What is the long-term future vision for Handover?",
-    "answer": "English audio narration downloads, short transcription drafts, private document import and reviewed public guides/hubs are available. Local narrated WebM downloads with reviewed replacement audio and bounded experimental moving blur are available. Automatic timing, exported camera movement, team workflows, larger recordings and richer media understanding remain open. Read-only selected-recording MCP setup and trim/cut/fixed blur are live. Roadmap items are not delivery guarantees."
+    "answer": "English audio narration downloads, short transcription drafts, private document import and reviewed public guides/hubs are available. Reviewed narrated WebM downloads or same-link saved playback, optional manual camera points, timed WAV composition from reviewed step times, and bounded experimental moving blur are available. Automatic timing discovery, AI-selected camera movement, team workflows, larger recordings and richer media understanding remain open. Read-only selected-recording MCP setup and trim/cut/fixed blur are live. Roadmap items are not delivery guarantees."
   },
   {
     "id": "103",
