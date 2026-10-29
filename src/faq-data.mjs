@@ -177,7 +177,7 @@ export const faqItems=[
     "id": "30",
     "category": "Bug Reporting, Developer Tooling & MCP Integration",
     "question": "What is Handover's MCP (Model Context Protocol) Server integration?",
-    "answer": "Handover has a live read-only MCP endpoint. Create an expiring grant for explicitly selected sanitized text and timestamps in Coding agents. No raw media, private notes or automatic fixes are included. External client connection is manual and has not been end-to-end verified. Redaction or transcript changes revoke access and pause new grants. DOM evidence can be reviewed and safely rebuilt in Coding agents; old tokens stay revoked. Edited-video evidence is still excluded."
+    "answer": "Handover has a live read-only MCP endpoint. Create an expiring grant for explicitly selected sanitized text and timestamps in Coding agents. No raw media, private notes or automatic fixes are included. External client connection is manual and has not been end-to-end verified. Redaction or transcript changes revoke access and pause new grants. DOM evidence can be reviewed and safely rebuilt in Coding agents; old tokens stay revoked. Edited-video context can be supplied as separately reviewed edited-timeline text bound to the saved derivative. Original transcript is never automatically reused; older edits may need a verified resave first."
   },
   {
     "id": "31",

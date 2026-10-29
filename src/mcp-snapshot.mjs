@@ -3,10 +3,10 @@ export function createSnapshot(selected, {now = Date.now(), expiresAt, maxRecord
  if (!Array.isArray(selected) || !selected.length || selected.length > maxRecordings) throw Error('Select 1 to 10 recordings.');
  if (!Number.isFinite(expiresAt) || expiresAt <= now || expiresAt > now + 7 * 86400000) throw Error('Choose an expiry within 7 days.');
  const seen = new Set();
- const recordings = selected.map(({recording, evidence}) => {
+ const recordings = selected.map(({recording, evidence, approvedEditSha}) => {
   if (!recording || typeof recording.id !== 'string' || seen.has(recording.id)) throw Error('Invalid recording selection.');
   seen.add(recording.id);
-  if (recording.videoEdit) throw Error('Edited video evidence must be rebuilt before coding-agent access.');
+  if (recording.videoEdit && (typeof approvedEditSha!=='string'||!approvedEditSha||approvedEditSha!==recording.videoEdit.sha)) throw Error('Edited video evidence must be rebuilt before coding-agent access.');
   if (!Array.isArray(evidence) || evidence.length > 500) throw Error('Recording evidence is unavailable or too large.');
   // Accept only evidence already sanitized by the recording index. Never copy arbitrary record fields.
   return {id: recording.id, title: String(recording.title || 'Untitled').slice(0,160), duration: Math.max(0,Number(recording.duration)||0), evidence: evidence.filter(e => e.type !== 'note').map(e => {
